@@ -1,14 +1,12 @@
-//Create variables here
 var dog,dog1,dogimg,doghappy;
 var database;
 var foodS;
 var foodStock;
 
-function preload()
-{
-  //load images here
-  dog = loadImage("images/dogImg.png");
-  dog1 = loadImage("images/dogImg1.png");
+function preload(){
+
+  dog = loadImage("dogImg.png","dogImg1.png");
+
 }
 
 function setup() {
@@ -17,7 +15,7 @@ function setup() {
   var foodStock = database.ref("Food");
   foodStock.on("value",readStock);
   dog = createSprite(300,400,40,20);
-  dog.addImage("dogSad",dog);
+  dog.addImage("dogSad",dogimg);
   
 }
 
@@ -26,7 +24,7 @@ function draw() {
   background(46,139,87);
 text("Note:PRESS 'UP_ARROW' KEY TO FEED DRAGO MILK!");
   if(keyWentDown(UP_ARROW)){
-    writwStock(foodS);
+    writeStock(foodS);
     dog1.addImage("dogHappy",doghappy);
   }
 
